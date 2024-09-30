@@ -2,11 +2,11 @@
 
 Upon completion of the quiz, the program calculates the score and determines the user's level of knowledge about Taylor Swift. Depending on the result, an appropriate message assessing the level of knowledge is displayed. Additionally, if the user scores higher, the program generates a certificate of their knowledge about Taylor Swift.
 
+![taylor-swift-2-3840x2160](https://github.com/user-attachments/assets/1375bf63-6193-4a1e-9439-bcec7200d78a)
+
 The code utilizes some basic techniques to enhance user experience and accuracy. Here's how it demonstrates a moderate level of technological sophistication and precision:
 
 User Interface Management: The code employs system("cls") to clear the console screen between questions and when displaying results. This simple technique enhances readability and ensures that the user interface remains clean and uncluttered throughout the quiz.
-
-![taylor-swift-2-3840x2160](https://github.com/user-attachments/assets/1375bf63-6193-4a1e-9439-bcec7200d78a)
 
 Timing and Delays: The program utilizes Sleep() to introduce delays, giving the impression of a loading process between sections of the quiz. While this doesn't directly contribute to precision, it enhances user experience by providing feedback on the progress of the quiz.
 
