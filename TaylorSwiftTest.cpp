@@ -57,7 +57,7 @@ int calculateTimezoneOffset() {
 	}
 
 	// Output the time zone offset
-	//std::cout << "Time zone offset: UTC" << (timezoneOffsetHours >= 0 ? "+" : "") << timezoneOffsetHours << std::endl;
+	// std::cout << "Time zone offset: UTC" << (timezoneOffsetHours >= 0 ? "+" : "") << timezoneOffsetHours << std::endl;
 
 	return timezoneOffsetHours;
 }
@@ -116,9 +116,9 @@ void startQuiz() {
 		cout << endl;  // Переход на следующую строку
 	}
 
-	cout << endl << "Все вопросы завершены!" << endl;
+	cout << endl << "ALL QUESTIONS DOWNLOADED" << endl;
 
-	Sleep(333);
+	Sleep(444);
 	system("cls"); // Очистить экран
 	int result = 1;
 	cout << "0. " << endl;
@@ -340,7 +340,7 @@ void startQuiz() {
 		for (size_t a = 0; a < 15; a++)
 		{
 			cout << '|';
-			Sleep(100 + (rand() % 400));
+			Sleep(2 + (rand() % 100));
 		}
 		Sleep(333);
 		cout << "\n" << endl;
@@ -363,8 +363,9 @@ void startQuiz() {
 		cout << "|                                         |" << endl;
 		cout << "-------------------------------------------" << endl;
 		cout << "\n" << endl;
+		cin.get();
 	}
-
+	
 }
 
 int main() {
@@ -379,10 +380,10 @@ int main() {
 	// Check if the time zone corresponds to US time zones (UTC-4 to UTC-10)
 	if (timezoneOffsetHours <= -4 && timezoneOffsetHours >= -10) {
 		std::cout << "The program is not available for execution in the United States." << std::endl;
-		cin.get();
-		return 1;
+
 	}
 
 	// Start the quiz if time zone is valid
 	startQuiz();
+	cin.get();
 }
