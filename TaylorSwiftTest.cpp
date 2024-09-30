@@ -39,7 +39,7 @@ int main() {
 		Sleep(500);
     const int numQuestions = 10;        // Количество вопросов
     const int totalProgress = 100;      // Процент завершения
-    const int barLength = 50;           // Длина индикатора
+    const int barLength = 25;           // Длина индикатора
 
     vector<int> progresses(numQuestions, 0);  // Прогресс для каждого вопроса
 
