@@ -6,6 +6,7 @@
 #include <thread>
 #include <vector>
 using namespace std;
+int rate;
 
 // Функция для получения и проверки региона
 bool isRegionUSA() {
@@ -277,7 +278,7 @@ void startQuiz() {
 	}
 
 	cout << "Almost done!" << endl;
-	int rate;
+
 	system("cls"); // Очистить экран
 	if (result < -4) {
 		rate = 0;
@@ -363,9 +364,287 @@ void startQuiz() {
 		cout << "|                                         |" << endl;
 		cout << "-------------------------------------------" << endl;
 		cout << "\n" << endl;
-		cin.get();
-	}
+		if (rate >= 4) {
+			cout << "You unlocked next test: Olivia Rodrigo Test!";
+			cout << "\npress any button no continue.\n";
+			cin.get();
+		}
 	
+	}
+	cin.get();
+}
+
+void startOlivia() {
+	setlocale(LC_ALL, "Ukrainian");
+	const int numQuestions = 10;        // Количество вопросов
+	const int totalProgress = 100;      // Процент завершения
+	const int barLength = 25;           // Длина индикатора
+
+	vector<int> progresses(numQuestions, 0);  // Прогресс для каждого вопроса
+
+	system("cls"); // Очистить экран
+	cout << "Welcome to the quiz about Olivia Rodrigo" << endl;
+	Sleep(500);
+	cout << "Today we'll test how well you know Olivia Rodrigo!" << endl;
+	Sleep(2500);
+	cout << "\n---------------------------------------------------------------------------------" << endl;
+	cout << "Quiz Loading...\n";
+
+	for (int i = 0; i < numQuestions; ++i) {
+		// Пока текущий вопрос не завершён
+		while (progresses[i] < totalProgress) {
+			cout << "\rВопрос " << i + 1 << ": ";
+			printProgressBar(progresses[i], barLength);
+
+			progresses[i] += rand() % 50 + 1;  // Случайное увеличение для вопроса
+
+			if (progresses[i] > totalProgress) {
+				progresses[i] = totalProgress; // Ограничиваем прогресс до 100%
+			}
+
+			cout.flush();  // Обновляем вывод
+
+			// Ускоренная задержка (с 200 мс до ~67 мс)
+			this_thread::sleep_for(chrono::milliseconds(67));
+		}
+
+		// После завершения вопроса переходим к следующему
+		cout << "\rВопрос " << i + 1 << ": ";
+		printProgressBar(progresses[i], barLength);
+		cout << endl;  // Переход на следующую строку
+	}
+
+	cout << endl << "ALL QUESTIONS DOWNLOADED" << endl;
+
+	Sleep(444);
+	system("cls"); // Очистить экран
+	int result = 1;
+	rate = 0;
+	cout << "0. " << endl;
+	cout << "What is the name of Olivia Rodrigo's debut album?" << endl;
+	cout << "0 - Fearless, 1 - SOUR, 2 - Red" << endl;
+	string zero;
+	cout << "0/1/2" << endl;
+	cin >> zero;
+	system("cls"); // Очистить экран
+	if (zero == "2") {
+		result = result - 1;
+	}
+	if (zero == "1") {
+		result = result + 2;
+	}
+	if (zero == "0") {
+		result = result - 1;
+	}
+
+	cout << "1. " << endl;
+	cout << "In what year was the SOUR album released?" << endl;
+	cout << "0 - 2021, 1 - 2020, 2 - 2019" << endl;
+	string first;
+	cout << "0/1/2" << endl;
+	cin >> first;
+	system("cls"); // Очистить экран
+	if (first == "2") {
+		result = result - 1;
+	}
+	if (first == "1") {
+		result = result + 0;
+	}
+	if (first == "0") {
+		result = result + 1;
+	}
+
+	cout << "2. " << endl;
+	cout << "Which song was Olivia Rodrigo's first major hit?" << endl;
+	cout << "0 - good 4 u, 1 - drivers license, 2 - deja vu" << endl;
+	string second;
+	cout << "0/1" << endl;
+	cin >> second;
+	system("cls"); // Очистить экран
+	if (first == "2") {
+		result = result + 0;
+	}
+	if (second == "1") {
+		result = result + 0;
+	}
+	if (second == "0") {
+		result = result + 2;
+	}
+
+	cout << "3. " << endl;
+	cout << "What role did Olivia Rodrigo play in the series High School Musical: The Musical: The Series?" << endl;
+	cout << "0 - Nini Salazar-Roberts, 1 - Ashlyn Caswell, 2 - Gina Porter" << endl;
+	string third;
+	cout << "0/1" << endl;
+	cin >> third;
+	system("cls"); // Очистить экран
+	if (third == "2") {
+		result = result + 0;
+	}
+	if (third == "1") {
+		result = result - 1;
+	}
+	if (third == "0") {
+		result = result + 2;
+	}
+
+	cout << "4. " << endl;
+	cout << "In which country was Olivia Rodrigo born?" << endl;
+	cout << "0 - USA, 1 - Canada, 2 - United Kingdom" << endl;
+	string four;
+	cout << "0/1/2" << endl;
+	cin >> four;
+	system("cls"); // Очистить экран
+	if (four == "2") {
+		result = result - 1;
+	}
+	if (four == "1") {
+		result = result - 1;
+	}
+	if (four == "0") {
+		result = result + 1;
+	}
+
+	cout << "5. " << endl;
+	cout << "Which Olivia Rodrigo song was nominated for a Grammy Award for Song of the Year? " << endl;
+	cout << "0 - traitor, 1 - drivers license, 2 - brutal" << endl;
+	string five;
+	cin >> five;
+	system("cls"); // Очистить экран
+	if (five == "2") {
+		result = result - 1;
+	}
+	if (five == "1") {
+		result = result + 2;
+	}
+	if (five == "0") {
+		result = result + 0;
+	}
+
+	cout << "6. " << endl;
+	cout << "What is Olivia Rodrigo's heritage?" << endl;
+	cout << "0 - American and Filipino, 1 - American and Mexican, 2 - American and Italian" << endl;
+	string six;
+	cout << "0/1/2/3" << endl;
+	cin >> six;
+	system("cls"); // Очистить экран
+	if (six == "2") {
+		result = result - 1;
+	}
+	if (six == "1") {
+		result = result - 1;
+	}
+	if (six == "0") {
+		result = result + 2;
+	}
+
+	cout << "7. " << endl;
+	cout << "How many Grammy Awards did Olivia Rodrigo win in 2022?" << endl;
+	cout << "0 - 1, 1 - 2, 2 - 3" << endl;
+	string seven;
+	cout << "0/1/2" << endl;
+	cin >> seven;
+	system("cls"); // Очистить экран
+	if (seven == "2") {
+		result = result + 2;
+	}
+	if (seven == "1") {
+		result = result + 0;
+	}
+	if (seven == "0") {
+		result = result - 1;
+	}
+
+	cout << "8. " << endl;
+	cout << "What is the name of Olivia Rodrigo's second studio album?" << endl;
+	cout << "0 - GUTS, 1 - SOUR 2, 2 - SUP" << endl;
+	string eight;
+	cout << "0/1" << endl;
+	cin >> eight;
+	system("cls"); // Очистить экран
+	if (seven == "2") {
+		result = result + 1;
+	}
+	if (seven == "1") {
+		result = result - 1;
+	}
+	if (seven == "0") {
+		result = result - 1;
+	}
+
+	cout << "9. " << endl;
+	cout << "Which Olivia Rodrigo song became popular on TikTok?" << endl;
+	string nine;
+	cout << "0 - happier, 1 - good 4 u, 2 - jealousy, jealousy" << endl;
+	cin >> eight;
+	system("cls"); // Очистить экран
+	if (nine == "2") {
+		result = result - 1;
+	}
+	if (nine == "1") {
+		result = result + 2;
+	}
+	if (nine == "0") {
+		result = result - 1;
+	}
+
+	cout << "Almost done!" << endl;
+	int rate;
+	system("cls"); // Очистить экран
+	if (result < -4) {
+		rate = 0;
+	}
+	else if (result >= -4 && result < 0) {
+		rate = 1;
+	}
+	else if (result >= 0 && result < 6) {
+		rate = 2;
+	}
+	else if (result >= 6 && result < 10) {
+		rate = 3;
+	}
+	else if (result >= 10 && result < 13) {
+		rate = 4;
+	}
+	else if (result >= 13) {
+		rate = 5;
+	}
+
+	cout << "---------------------------------------------------------------------------------" << endl;
+	cout << "Let's count the points...  ";
+	Sleep(500);
+
+	for (size_t a = 0; a < 15; a++)
+	{
+		cout << '|';
+		Sleep(100 + (rand() % 200));
+	}
+	system("cls"); // Очистить экран
+	string end;
+	cout << "---------------------------------------------------------------------------------" << endl;
+	cout << "Your result: " << result << endl;
+	cout << "---------------------------------------------------------------------------------" << endl;
+	if (rate == 0) {
+		end = "Kill yourself";
+	}
+	if (rate == 1) {
+		end = "You know Olivia Rodrigo very poorly, like REALLY BADLY. \nNothing can help you anymore.";
+	}
+	if (rate == 2) {
+		end = "You know Olivia Rodrigo very poorly. \nI recommend you to re-listen to all of her tracks and watch at least 100 TikToks";
+	}
+	if (rate == 3) {
+		end = "You know Olivia Rodrigo at the level of an ordinary garbage dude. \nI recommend watching a couple of biographies and top interesting facts about Taylor Swift on YouTube.";
+	}
+	if (rate == 4) {
+		end = "You know Olivia Rodrigo quite well. But still, not perfect. \nOrder a mug with Taylor Swift.";
+	}
+	if (rate == 5) {
+		end = "You know Olivia excellently!\n\n";
+	}
+	cout << end << endl;
+	cout << "This test does not support certificate for now.";
+	cin.get();
 }
 
 int main() {
@@ -385,5 +664,8 @@ int main() {
 
 	// Start the quiz if time zone is valid
 	startQuiz();
+	if (rate >= 4) {
+		startOlivia();
+	}
 	cin.get();
 }
